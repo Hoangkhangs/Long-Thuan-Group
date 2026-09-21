@@ -151,7 +151,7 @@ export default function Home() {
         </section>
 
         {/* SECTION: COMPANY VIDEO */}
-        <section id="about" className="scroll-mt-28 py-24 bg-slate-900 border-t border-slate-800">
+        <section id="about" className="py-24 bg-slate-900 border-t border-slate-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
@@ -167,11 +167,15 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {videoData.map((video) => (
-                <div key={video.id} className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
+                <motion.div key={video.id} variants={fadeInUp} className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
                   <iframe
                     className="absolute inset-0 h-full w-full"
                     src={`https://www.youtube-nocookie.com/embed/${video.id}`}
@@ -180,9 +184,9 @@ export default function Home() {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -236,9 +240,9 @@ export default function Home() {
               <motion.div variants={fadeInUp} className="bg-gradient-to-br from-red-900/40 to-slate-900 border border-red-900/50 p-6 rounded-2xl flex flex-col justify-center items-center text-center shadow-lg relative overflow-hidden group">
                 <div className="relative z-10 w-full">
                   <div className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Báo giá Doanh nghiệp</div>
-                  <button className="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transform group-hover:-translate-y-1">
-                    Liên hệ B2B
-                  </button>
+                  <a href="tel:+842837753399" className="block w-full bg-red-600 hover:bg-red-500 text-center text-white font-bold py-4 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transform group-hover:-translate-y-1">
+                    Liên hệ
+                  </a>
                 </div>
               </motion.div>
             </motion.div>
