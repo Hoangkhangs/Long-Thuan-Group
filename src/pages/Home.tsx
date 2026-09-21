@@ -143,7 +143,7 @@ export default function Home() {
         </section>
 
         {/* SECTION: COMPANY VIDEO */}
-        <section className="py-24 bg-slate-900 border-t border-slate-800">
+        <section id="about" className="py-24 bg-slate-900 border-t border-slate-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
@@ -322,7 +322,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: IMPORTED COAL */}
-        <section id="about" className="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
+        <section className="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div 
