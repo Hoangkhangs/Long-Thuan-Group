@@ -24,6 +24,12 @@ const ohlcData = [
   { x: new Date('2024-09-01').getTime(), y: [142.1, 144, 138, 140.5] }
 ];
 
+const videoData = [
+  { id: "ghKoQj7iTso", title: "Video giới thiệu Long Thuận Group" },
+  { id: "1tZ82A0p2KU", title: "Long Thuận Group - Video hoạt động" },
+  { id: "1ZXc8NmVS8w", title: "Long Thuận Group - Video doanh nghiệp" }
+];
+
 const newsData = [
   {
     id: 1,
@@ -132,6 +138,46 @@ export default function Home() {
                   Xem Bảng giá Real-time
                 </a>
               </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION: COMPANY VIDEO */}
+        <section className="py-24 bg-slate-900 border-t border-slate-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="mb-12 max-w-3xl"
+            >
+              <div className="text-red-500 font-semibold tracking-wider text-sm mb-3 uppercase">Long Thuận Group</div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-serif">Kết nối năng lượng, mở rộng tương lai</h2>
+              <p className="text-lg text-slate-400 leading-relaxed">
+                Cùng nhìn lại năng lực vận hành và hệ sinh thái dịch vụ của Long Thuận Group qua các video giới thiệu.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {videoData.map((video) => (
+                <motion.div key={video.id} variants={fadeInUp} className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
+                  <iframe
+                    className="absolute inset-0 h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>
