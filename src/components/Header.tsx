@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import { Menu, X, TrendingUp } from "lucide-react";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { cn } from "../lib/utils";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+
+    event.preventDefault();
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setIsMenuOpen(false);
+  };
 
   const navLinks = [
     { name: "Trang chủ", href: "/" },
@@ -49,6 +57,7 @@ export default function Header() {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(event) => handleSectionClick(event, link.href)}
                 className="text-sm font-medium text-slate-300 hover:text-red-500 transition-colors"
               >
                 {link.name}
@@ -85,8 +94,8 @@ export default function Header() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(event) => handleSectionClick(event, link.href)}
               className="block px-3 py-2 text-base font-medium text-slate-300 hover:text-red-500 hover:bg-slate-800 rounded-md"
-              onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
             </a>

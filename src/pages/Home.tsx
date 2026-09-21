@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import ReactApexChart from "react-apexcharts";
 import { ArrowRight, Anchor, Truck, TrendingUp, Flame, Globe2, Wheat, ShieldCheck, MapPin, BarChart3, LineChart as LineChartIcon, CandlestickChart } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 
 // Real-time market tracking data simulation
 const barLineData = {
@@ -83,6 +83,14 @@ export default function Home() {
   const heroTextY = useTransform(heroScroll, [0, 1], ["0%", "80%"]);
   const heroOpacity = useTransform(heroScroll, [0, 1], [1, 0]);
 
+  const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const href = event.currentTarget.getAttribute("href");
+    if (!href?.startsWith("#")) return;
+
+    event.preventDefault();
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-red-500/30 font-sans">
       <motion.div 
@@ -130,11 +138,11 @@ export default function Home() {
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
-                <a href="#services" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-8 py-4 rounded-md font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]">
+                <a href="#services" onClick={handleSectionClick} className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-8 py-4 rounded-md font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]">
                   Khám phá Giải pháp
                   <ArrowRight className="h-5 w-5" />
                 </a>
-                <a href="#pricing" className="inline-flex items-center gap-2 glass-panel hover:bg-slate-800 text-white px-8 py-4 rounded-md font-semibold transition-all duration-300">
+                <a href="#pricing" onClick={handleSectionClick} className="inline-flex items-center gap-2 glass-panel hover:bg-slate-800 text-white px-8 py-4 rounded-md font-semibold transition-all duration-300">
                   Xem Bảng giá Real-time
                 </a>
               </motion.div>

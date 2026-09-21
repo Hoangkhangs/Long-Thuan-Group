@@ -1,7 +1,16 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import type { MouseEvent } from "react";
 
 export default function Footer() {
+  const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const href = event.currentTarget.getAttribute("href");
+    if (!href?.startsWith("#")) return;
+
+    event.preventDefault();
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <footer className="bg-slate-950 py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,10 +57,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Liên kết</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-slate-400 hover:text-red-500 transition-colors">Về chúng tôi</a></li>
-              <li><a href="#pricing" className="text-slate-400 hover:text-red-500 transition-colors">Bảng giá</a></li>
-              <li><a href="#services" className="text-slate-400 hover:text-red-500 transition-colors">Dịch vụ B2B</a></li>
-              <li><a href="#partners" className="text-slate-400 hover:text-red-500 transition-colors">Đối tác chiến lược</a></li>
+              <li><a href="#about" onClick={handleSectionClick} className="text-slate-400 hover:text-red-500 transition-colors">Về chúng tôi</a></li>
+              <li><a href="#pricing" onClick={handleSectionClick} className="text-slate-400 hover:text-red-500 transition-colors">Bảng giá</a></li>
+              <li><a href="#services" onClick={handleSectionClick} className="text-slate-400 hover:text-red-500 transition-colors">Dịch vụ B2B</a></li>
+              <li><a href="#partners" onClick={handleSectionClick} className="text-slate-400 hover:text-red-500 transition-colors">Đối tác chiến lược</a></li>
             </ul>
           </div>
           
