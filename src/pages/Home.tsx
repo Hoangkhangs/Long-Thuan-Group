@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ReactApexChart from "react-apexcharts";
-import { ArrowRight, Anchor, Truck, TrendingUp, Flame, Globe2, Wheat, ShieldCheck, MapPin, BarChart3, LineChart as LineChartIcon, CandlestickChart } from "lucide-react";
+import { ArrowRight, Anchor, Truck, TrendingUp, Flame, Globe2, Wheat, ShieldCheck, MapPin, BarChart3, LineChart as LineChartIcon, CandlestickChart, Phone } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, useState, type MouseEvent } from "react";
 
@@ -241,7 +241,10 @@ export default function Home() {
                 <div className="relative z-10 w-full">
                   <div className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Báo giá Doanh nghiệp</div>
                   <a href="tel:+842837753399" className="block w-full bg-red-600 hover:bg-red-500 text-center text-white font-bold py-4 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-red-600/20 group-hover:shadow-red-600/40 transform group-hover:-translate-y-1">
-                    Liên hệ
+                    <span className="inline-flex items-center justify-center gap-2">
+                      <Phone className="h-4 w-4" />
+                      Liên hệ
+                    </span>
                   </a>
                 </div>
               </motion.div>

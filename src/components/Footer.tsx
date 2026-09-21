@@ -68,7 +68,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Nội bộ</h3>
             <ul className="space-y-2">
               <li><Link to="/admin-login" className="text-slate-400 hover:text-yellow-500 transition-colors">Đăng nhập Quản trị</Link></li>
-              <li><a href="#" className="text-slate-400 hover:text-yellow-500 transition-colors">Webmail</a></li>
+              <li><a href="mailto:info@longthuan.com.vn" className="text-slate-400 hover:text-yellow-500 transition-colors">Webmail</a></li>
             </ul>
           </div>
         </div>
