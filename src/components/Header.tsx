@@ -15,10 +15,9 @@ export default function Header() {
   };
 
   const navLinks = [
-    { name: "Trang chủ", href: "/" },
+    { name: "Trang chủ", href: "#pricing" },
     { name: "Về chúng tôi", href: "#about" },
     { name: "Bảng giá", href: "#pricing" },
-    { name: "Dịch vụ B2B", href: "#services" },
     { name: "Đối tác", href: "#partners" },
     { name: "Tin tức", href: "#news" },
   ];
