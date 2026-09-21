@@ -151,7 +151,7 @@ export default function Home() {
         </section>
 
         {/* SECTION: COMPANY VIDEO */}
-        <section id="about" className="py-24 bg-slate-900 border-t border-slate-800">
+        <section id="about" className="scroll-mt-28 py-24 bg-slate-900 border-t border-slate-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
@@ -167,15 +167,11 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
+            <div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {videoData.map((video) => (
-                <motion.div key={video.id} variants={fadeInUp} className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
+                <div key={video.id} className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl">
                   <iframe
                     className="absolute inset-0 h-full w-full"
                     src={`https://www.youtube-nocookie.com/embed/${video.id}`}
@@ -184,9 +180,9 @@ export default function Home() {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                   />
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
